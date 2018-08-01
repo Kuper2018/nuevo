@@ -1,0 +1,37 @@
+ FRONTEND 
+----------------------------------------------------------------------------------
+- para trabajar en FRONTEND.
+
+*HERRAMIENTAS*
+  -Visual Studio Code - https://code.visualstudio.com/ 
+  -Descargar git - https://git-scm.com/ 
+  -Descargar Node  - https://nodejs.org/en/  
+
+
+*Una ves instalado los 3 programas hacer prueba*
+  
+  /USANDO CMD/
+   + node --version // para saver si installo correctamente NOde.js 
+   + npm install -g @angular/cli   // para instalar angular
+   + npm new PROYECTO // crea el proyecto con todos los componentes ahi dentro
+   + cd PROYECTO // entrar a la carpeta 
+   + npm install // instalar los servicios [node_modules]
+
+
+
+*  Una ves realizado estos pasos, en consola hacer 
+    ng serve -o  // para hacer correr el proyecto*
+
+*   Una ves que aya ejecutado el proyecto entrar desde el navegador 
+    a : localhost:4200*
+
+
+-------------------------------------------------------------------------------------   
+    para subirlo a un servidor [GITHUB]
+
+*https://www.npmjs.com/package/angular-cli-ghpages   // instalar desde consola [npm i -g angular-cli-ghpages]
+*https://github.com/        // crearse cuenta en GITHUB 
+* crear un repositorio.
+
+- - - - - - - - - - -- - - - - -- - - - - - - - - - - - - - - - -- - - - - -- - - - 
+seguir este tutorial : https://www.youtube.com/watch?v=MQSjvZK5XNA

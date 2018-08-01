@@ -1,0 +1,531 @@
+
+<div class="main-content">
+        <div class="container-fluid">
+            <div class="card card-plain">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">Configuracion</h4>
+                    <p class="card-category">Modalidades,Ciudades,Trabajos
+                     
+                    </p>
+                </div>
+                
+            
+      <div class="col-lg-12 col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-tabs card-header-primary">
+                      <div class="nav-tabs-navigation">
+                          <div class="nav-tabs-wrapper">
+                              <span class="nav-tabs-title">Configuracion General:</span>
+                              <ul class="nav nav-tabs" data-tabs="tabs">
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                          <i class="material-icons">access_time</i> Modalidades de trabajo
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                          <i class="material-icons">location_city</i> Ciudades
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                          <i class="material-icons">next_week</i> Trabajos
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="card-body">
+                    
+                      <div class="tab-content">
+                           
+                          <div class="tab-pane active" id="profile">
+                                  <div class="row">
+                                          <div class="col-md-6">
+                              <div class="container-fluid">
+                                  <form (submit)="addConfiguracion($event)"> <!--FORMULARIO-->
+                                     <!-- <div class="row">
+                                      <div class="col-md-8">
+                                    <mat-form-field class="example-full-width">
+                                            <input type="text" matInput placeholder="Agregar una modalidad" >
+                                            
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                             
+                                                <button mat-raised-button type="submit" (click)="AddModalidad()" class="btn btn-white btn-round btn-just-icon">
+                                                        <i class="material-icons">library_add</i>
+                                                        <div class="ripple-container"></div>
+                                                    </button>
+                                            
+                                        </div>
+                                        </div> -->
+                                        <div class="input.group">
+                                            <input type="text" name="title" [(ngModel)]="title"  placeholder="AGREGAR  ALGO " class="form-control" >
+                                              
+                                                <span class="input.group.addon">
+                                                    <button type="submit" class="btn btn-danger">
+                                                        ADD
+                                                    </button>
+                                                </span>
+                                             
+                                        </div>  
+                                    </form>
+                              </div>
+                                 
+                           
+                              <table class="table">
+                               <tbody *ngFor="let n of modalidadesH">
+                                       
+                                      <tr>
+                                          <td>
+                                              
+                                          </td>
+                                                  
+                                           <td>{{n.id}}  -  {{n.Modalidad}}</td>
+                                           
+                                          <td class="td-actions text-right">
+                                               <button type="button"  mat-raised-button matTooltip="Editar" [matTooltipPosition]="'above'" (click)="updateConfiguracion(n.id,n.Modalidad)" class="btn btn-warning btn-link btn-sm btn-just-icon" >
+                                                  <i class="material-icons">edit</i>
+                                                </button>
+                                               
+                                              <button mat-raised-button type="button" matTooltip="Eliminar" [matTooltipPosition]="'above'" (click)="deleteConfiguracion(n.id)" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                                
+                                          </td>
+                                      </tr>
+                                  </tbody>
+
+
+                                  <tbody >
+                                       
+                                        <tr>
+                                            <td>
+                                                
+                                            </td>
+                                                    
+                                             <td>OTROS</td>
+                                             
+                                            <td class="td-actions text-right">
+                                                 <button type="button"  mat-raised-button matTooltip="Editar" [matTooltipPosition]="'above'" class="btn btn-warning btn-link btn-sm btn-just-icon" >
+                                                    <i class="material-icons">edit</i>
+                                                  </button>
+                                                 
+                                                <button mat-raised-button type="button" matTooltip="Eliminar" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                                  
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                              </table>
+                              
+                               </div>
+                            
+                               <div class="col-md-6">
+                                      <div class="container-fluid">
+                                           
+                                         
+                                          
+                                      </div>
+                                         
+                                    
+                                      <table class="table">
+                                         
+              
+              
+                                          <tbody>
+                                              
+                                              <tr>
+                                                  <td>
+                                                      <div class="form-check">
+                                                          <label class="form-check-label">
+                                                              <input class="form-check-input" type="checkbox" value="">
+                                                              <span class="form-check-sign">
+                                                                  <span class="check"></span>
+                                                              </span>
+                                                          </label>
+                                                      </div>
+                                                  </td>
+                                                  <td> MENSUAL TIEMPO COMPLETO</td>
+                                                  <td class="td-actions text-right">
+                                                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                          <i class="material-icons">edit</i>
+                                                      </button>
+                                                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                          <i class="material-icons">close</i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                      <div class="form-check">
+                                                          <label class="form-check-label">
+                                                              <input class="form-check-input" type="checkbox" value="">
+                                                              <span class="form-check-sign">
+                                                                  <span class="check"></span>
+                                                              </span>
+                                                          </label>
+                                                      </div>
+                                                  </td>
+                                                  <td>POR DIA O POR PERIODO
+                                                  </td>
+                                                  <td class="td-actions text-right">
+                                                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                          <i class="material-icons">edit</i>
+                                                      </button>
+                                                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                          <i class="material-icons">close</i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                      <div class="form-check">
+                                                          <label class="form-check-label">
+                                                              <input class="form-check-input" type="checkbox" value="" checked>
+                                                              <span class="form-check-sign">
+                                                                  <span class="check"></span>
+                                                              </span>
+                                                          </label>
+                                                      </div>
+                                                  </td>
+                                                  <td>MENSUAL MEDIO TIEMPO</td>
+                                                  <td class="td-actions text-right">
+                                                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                          <i class="material-icons">edit</i>
+                                                      </button>
+                                                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                          <i class="material-icons">close</i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  
+                                       </div>
+                                  
+      
+                              </div>
+      
+                             
+                              
+                             
+                          </div>
+      
+      
+      
+                        
+                          <div class="tab-pane" id="messages">
+      
+                                  <div class="container-fluid">
+                                          <div class="row">
+                                                  <div class="col-md-8 ">
+                                                    <label>AGREGAR NUEVO</label>
+                                                    <mat-form-field class="example-full-width">
+                                                       <input type="text" matInput placeholder="Agregar una nueva Ciudad">
+                                                     </mat-form-field>
+                                                     
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                          
+                                                          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                                                  <i class="material-icons">library_add</i>
+                                                                  <div class="ripple-container"></div>
+                                                              </button>
+                                                        </div>
+          
+                                              </div>
+                                      
+                                  </div>
+                             
+                              <table class="table">
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="" checked>
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div>
+                                          </td>
+                                          <td>Santa Cruz 
+                                          </td>
+                                          <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="">
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div>
+                                          </td>
+                                          <td>Cochabamba</td>
+                                          <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                              <td>
+                                                  <div class="form-check">
+                                                      <label class="form-check-label">
+                                                          <input class="form-check-input" type="checkbox" value="">
+                                                          <span class="form-check-sign">
+                                                              <span class="check"></span>
+                                                          </span>
+                                                      </label>
+                                                  </div>
+                                              </td>
+                                              <td>La Paz</td>
+                                              <td class="td-actions text-right">
+                                                  <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                      <i class="material-icons">edit</i>
+                                                  </button>
+                                                  <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                      <i class="material-icons">close</i>
+                                                  </button>
+                                              </td>
+                                          </tr>
+                                  </tbody>
+                              </table>
+                                
+                          </div>
+                       
+                      
+                          <div class="tab-pane" id="settings">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <div class="container-fluid">
+                                          <div class="row">
+                                                  <div class="col-md-8 ">
+                                                    <label>AGREGAR NUEVO</label>
+                                                    <mat-form-field class="example-full-width">
+                                                       <input type="text" matInput placeholder="Agregar un nuevo Trabajo">
+                                                     </mat-form-field>
+                                                     
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                          
+                                                          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                                                  <i class="material-icons">library_add</i>
+                                                                  <div class="ripple-container"></div>
+                                                              </button>
+                                                        </div>
+          
+                                              </div>
+                                      
+                                  </div>
+                               
+                              <table class="table">
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="">
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div>
+                                          </td>
+                                          <td>Niñera</td>
+                                          <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="" checked>
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div>
+                                          </td>
+                                          <td>Ayudante de cosina
+                                          </td>
+                                          <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="" checked>
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div>
+                                          </td>
+                                          <td>Cajero</td>
+                                          <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                           
+                          </div>
+
+
+                 
+                 <div class="col-md-6">
+                      <div class="container-fluid">
+                              <div class="row">
+                                      <div class="col-md-8 ">
+                                        <label>AGREGAR NUEVO</label>
+                                        <mat-form-field class="example-full-width">
+                                           <input type="text" matInput placeholder="Agregar un nuevo Trabajo">
+                                         </mat-form-field>
+                                         
+                                      </div>
+                                      <div class="col-md-4">
+                                              
+                                              <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                                      <i class="material-icons">library_add</i>
+                                                      <div class="ripple-container"></div>
+                                                  </button>
+                                            </div>
+      
+                                  </div>
+                          
+                      </div>
+
+                    
+                  <table class="table">
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <div class="form-check">
+                                      <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" value="">
+                                          <span class="form-check-sign">
+                                              <span class="check"></span>
+                                          </span>
+                                      </label>
+                                  </div>
+                              </td>
+                              <td>CHOFER</td>
+                              <td class="td-actions text-right">
+                                  <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">edit</i>
+                                  </button>
+                                  <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">close</i>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <div class="form-check">
+                                      <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" value="" checked>
+                                          <span class="form-check-sign">
+                                              <span class="check"></span>
+                                          </span>
+                                      </label>
+                                  </div>
+                              </td>
+                              <td>CHEFF
+                              </td>
+                              <td class="td-actions text-right">
+                                  <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">edit</i>
+                                  </button>
+                                  <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">close</i>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <div class="form-check">
+                                      <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" value="" checked>
+                                          <span class="form-check-sign">
+                                              <span class="check"></span>
+                                          </span>
+                                      </label>
+                                  </div>
+                              </td>
+                              <td>MESERO</td>
+                              <td class="td-actions text-right">
+                                  <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">edit</i>
+                                  </button>
+                                  <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">close</i>
+                                  </button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+               
+              </div>
+             
+
+      
+      
+      
+                      </div>
+                      </div>
+                   
+                      </div>
+                    
+                  </div>
+               
+
+              </div>
+          </div>
+      
+              
+              
+            </div>
+        </div>
+      </div>
+  
